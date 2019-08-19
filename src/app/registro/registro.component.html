@@ -1,1 +1,130 @@
-<p>registro works!</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Frida</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        function compruebaValidoEntero() {
+            if (document.formulario.Name.value.length <= 3) {
+                var BackgroundColor = "RED";
+                var hiddenn = "false"
+                //selecciono el texto
+                document.formulario.Name.select()
+                //coloco otra vez el foco
+                document.formulario.Name.focus()
+
+                //document.getElementById("div").style.background=BackgroundColor;
+
+                document.getElementById("imagen").removeAttribute("hidden");
+            } else {
+                //document.getElementById("div").style.background="none";
+
+                document.getElementById("imagen").setAttribute("hidden", "true");
+            }
+        }
+
+        function comprobartodo() {
+            comprobarnombre();
+        }
+
+        function comprobarnombre() {
+            if (document.formulario.Name.value.length <= 3) {
+                //selecciono el texto
+                //document.formulario.Name.select();
+                //coloco otra vez el foco
+                document.formulario.Name.focus();
+
+                document.getElementById("imagen").removeAttribute("hidden");
+                //document.getElementById("imagen").setAttribute("src","css/image/tache.png");
+                document.getElementById("imagen").setAttribute("title","Nombre no valido")
+            } else {
+                document.getElementById("imagen").removeAttribute("hidden");
+                //document.getElementById("imagen").setAttribute("src","css/image/palomita.png");
+            }
+        }
+        function mouse(){
+            document.getElementById("imagen").setAttribute("title","Nombre no valido");
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div id="cuerpo" class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3>Registro del Consultor</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="texto">
+                <br>
+                <p>Nombres(s) :</p>
+                <br>
+                <p>Primer Apellido :</p>
+                <br>
+                <p>Segundo Apellido :</p>
+                <br>
+                <p>Fecha de Nacimiento :</p>
+                <br>
+                <p>Género :</p>
+                <br>
+                <p>Usuario :</p>
+                <br>
+                <p>Contraseña :</p>
+                <br>
+                <p>Correo Electrónico :</p>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="cajas">
+                <br>
+                <input type="text" name="Name" class="bordeabajo" onkeyup="comprobarnombre()" required>
+                <br><br>
+                <input type="text" name="FirstLastName" class="bordeabajo">
+                <br><br>
+                <input type="text" name="SecondLastName" class="bordeabajo">
+                <br><br>
+                <input type="date" name="Data" class="bordeabajo" required>
+                <br><br>
+                <div class="row align-items-center remember" id="cajas">
+                    <input type="radio" name="gender" value="male" id="aqui" autofocus>Hombre
+                    <input type="radio" name="gender" value="female" id="aqui">Mujer
+                </div>
+                <br>
+                <input type="text" name="User" class="bordeabajo" required>
+                <br><br>
+                <input type="password" name="Password" class="bordeabajo" required>
+                <br><br>
+                <input type="mail" name="Mail" class="bordeabajo" required>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="div">
+                <input type="image" id="imagen" title="Hola" hidden disabled>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+                <input type="submit" class="btn btn-default btn-circle login_btn" value="Aceptar" onclick="comprobartodo();">
+
+
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

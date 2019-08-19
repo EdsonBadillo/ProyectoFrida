@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-registro',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+  
+  @HostBinding('class.is-open')
+  isOpen = false;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
 
   constructor() { }
 

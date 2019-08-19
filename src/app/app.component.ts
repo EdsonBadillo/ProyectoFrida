@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, HostListener, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProyectoFridaV1';
+
+  sideBarIsOpened = false;
+
+  ngOnInit() {
+    this.sideBarIsOpened = true;
+  }
+
+  toggleSideBar(shouldOpen: boolean) {
+    this.sideBarIsOpened = !this.sideBarIsOpened;
+  }
+  
 }
